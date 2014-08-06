@@ -15,20 +15,18 @@ Vagrant setup for developing Ghost
 
 ## Instructions
 
-- Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant 1.2.2](http://downloads.vagrantup.com/tags/v1.2.2)
+- Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/downloads.html)
 - *Linux Users:* Install an NFS daemon, e.g. `apt-get install nfs-kernel-server` 
 - Clone this repo
+- Initialise and fetch submodules
+    - `git submodule init`
+    - `git submodule update --recursive`
 - Edit the `Vagrantfile` in the root
     - Change your `GhostSourcePath` to match your environment
 - Edit your machines `hosts` file add `192.168.33.10 local.tryghost.org`
 - Run `vagrant up` from the root of the cloned repo.
-- Login to the VM with `vagrant ssh`
-- Change to the Ghost source directory: `cd code/Ghost`
-- Install git submodules: `git submodule update --init --recursive`
-- Install dependencies: `npm install`
-- Build Admin styles: `grunt init`
-- Run the Ghost App: `node index.js` or `npm start`
-- Validate code: `grunt validate`
+- This will automatically start ghost at `local.tryghost.org`
+- To validate code, navigate to the Ghost code (`cd code/Ghost`) and run `grunt validate`.
 
 ## Updating Virtual Box Guest Additions
 
@@ -42,7 +40,7 @@ The packaged vagrant box from Ubuntu contains outdated Virtual Box Guest Additio
 
 ## Copyright & License
 
-Copyright (C) 2013 The Ghost Foundation - Released under the MIT Lincense.
+Copyright (C) 2014 The Ghost Foundation - Released under the MIT Lincense.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
